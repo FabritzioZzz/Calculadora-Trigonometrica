@@ -40,3 +40,40 @@ public class CalculadoraTrigonometrica {
             }
         }
         scanner.close();
+}
+}
+
+class Calculadora {
+    public double calcular(int opcion, double alpha) {
+        switch (opcion) {
+            case 1:
+                return Math.sin(alpha);
+            case 2:
+                return Math.cos(alpha);
+            case 3:
+                if (Math.abs(Math.cos(alpha)) < 1e-10) {
+                    throw new IllegalArgumentException("Tangente indefinida en α = π/2 + kπ");
+                }
+                return Math.tan(alpha);
+            case 4:
+                if (alpha < -1 || alpha > 1) {
+                    throw new IllegalArgumentException("Arcoseno requiere un valor entre -1 y 1");
+                }
+                return Math.asin(alpha);
+            case 5:
+                if (alpha < -1 || alpha > 1) {
+                    throw new IllegalArgumentException("Arcocoseno requiere un valor entre -1 y 1");
+                }
+                return Math.acos(alpha);
+            case 6:
+                return Math.atan(alpha);
+            case 7:
+                return Math.sinh(alpha);
+            case 8:
+                return Math.cosh(alpha);
+            case 9:
+                return Math.tanh(alpha);
+            default:
+                throw new IllegalArgumentException("Opción no válida");
+        }
+    }
