@@ -77,3 +77,18 @@ class Calculadora {
                 throw new IllegalArgumentException("Opción no válida");
         }
     }
+public String getNombreFuncion(int opcion) {
+        switch (opcion) {
+            case 1: return "sin";
+            case 2: return "cos";
+            case 3: return "tan";
+            case 4: return "arcsin";
+            case 5: return "arccos";
+            case 6: return "arctan";
+            case 7: return "sinh";
+            case 8: return "cosh";
+            case 9: return "tanh";
+            default: return "desconocida";
+        }
+    }
+}
