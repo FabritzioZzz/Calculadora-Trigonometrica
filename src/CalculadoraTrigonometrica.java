@@ -16,8 +16,27 @@ public class CalculadoraTrigonometrica {
         System.out.println("10. Salir");
         System.out.print("Seleccione una opción (1-10): ");
         int opcion = scanner.nextInt();
+
+        if (opcion == 10) {
+            System.out.println("¡Gracias por usar la calculadora!");
+            break;
+        }
+
+        if (opcion < 1 || opcion > 10) {
+            System.out.println("Opción inválida. Por favor, seleccione entre 1 y 10.");
+            continue;
+        }
+        int opcion = scanner.nextInt();
         System.out.print("Ingrese el valor α (en radianes): ");
         double alpha = scanner.nextDouble();
+        double resultado = calc.calcular(opcion, alpha);
+                System.out.printf("%s(%.2f) = %.4f\n", calc.getNombreFuncion(opcion), alpha, resultado);
+
+            } catch (IllegalArgumentException e) {
+                System.out.println("Error: " + e.getMessage());
+            } catch (Exception e) {
+                System.out.println("Error: Entrada inválida. Por favor, ingrese un número válido.");
+                scanner.nextLine();
+            }
+        }
         scanner.close();
-    }
-}
